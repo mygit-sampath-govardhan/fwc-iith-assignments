@@ -1,3 +1,4 @@
+// 3*8 decoder
 
 #include <avr/io.h>
 
@@ -18,7 +19,7 @@ DDRB = 0b00000011;
 while (1){
  int A,B,C,D,E,F,G,H;
 
- bool X,Y,Z;
+ bool X,Y,Z;                               //checks if pin B0 is pressed, if so it is assigned to take input from same.
  X = (PINB & (1<<PINB2)) == (1<<PINB2); 
  Y = (PINB & (1<<PINB3)) == (1<<PINB3);
  Z = (PINB & (1<<PINB4)) == (1<<PINB4);
