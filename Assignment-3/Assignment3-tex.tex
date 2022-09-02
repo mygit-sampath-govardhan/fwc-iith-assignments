@@ -1,0 +1,141 @@
+
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\title{
+3 to 8 Decoder through AVR-GCC
+}
+\author{Kukunuri Sampath Govardhan}
+\begin{document}
+\maketitle
+\tableofcontents
+\begin{abstract}
+This document shows how to use Arduino UNO as a 3 to 8 Decoder
+\end{abstract}
+\section{Components}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{| c | c | c |}
+       \hline
+       \textbf{Component}  &  \textbf{Value}  &  \textbf{Qunatity}\\
+       \hline
+         Resistor  &  220Ohm  &  8  \\
+         \hline
+         LED  &  Red  &  8  \\
+         \hline
+         Arduino  & UNO & 1  \\
+         \hline
+         Jumper Wires  &  M-M  &  20  \\
+         \hline
+         BreadBoard  &    &  1\\
+         \hline
+         
+    \end{tabular}
+    \caption{}
+    \label{tab:my_label}
+\end{table}
+\section{Hardware}
+\textbf{Problem 2.1} Make connections between the Arduino UNO and LED's as shown in Table 2 \\
+
+\textbf{Problem 2.2} Connect anodes of LED's to the pins using resistors and cathodes to ground(gnd).\\
+\begin{table}[h]
+    \centering
+    \begin{tabular}{| c | c | c | c | c | c | c | c |}
+        \hline
+         d2 & d3 & d4 & d5 & d6 & d7 & d8 & d9   \\
+       \hline
+       led1 & led2 & led3 & led4 & led5 & led6 & led7 & led8  \\
+         \hline
+    \end{tabular}
+    \caption{}
+    \label{tab:my_label}
+\end{table}
+\\
+\textbf{Problem 2.3} Connect the pins X, Y, Z to arduino as shown in Table 3.\\
+
+    \begin{table}[h]
+    \centering
+    \begin{tabular}{| c | c | c |}
+    \hline
+    \textbf{X} & \textbf{Y} & \textbf{Z} \\
+    \hline
+    d10 & d11 & d12  \\
+    \hline
+    \end{tabular}
+    \caption{Truth Table}
+    \label{tab:my_label}
+ \end{table}
+
+
+\section{Software}
+
+\textbf{Problem 3.1} Now execute the following program and verify all the outputs as mentioned in Truth table (Table 4) by modifying the inputs X, Y, Z to 0's and 1's respectively. \\
+\begin{table}[h]
+    \centering
+    \begin{tabular}{| c |}
+    \hline
+    wget https://github.com/mygit-sampath-govardhan/fwc-iith-assignments\\/blob/8bf678297ca6e7ab7dcf3929290591d789f59a4f/Assignment-3\\/Assignment3-code.c\\
+    \hline
+    \end{tabular}
+\end{table}
+
+\textbf{Note:} Output pins d2-d9 are referenced as A-H respectively and input pins d10-d12 are referred as X,Y,Z respectively.\\
+
+    \begin{table}[h]
+    \centering
+    \begin{tabular}{| c | c | c || c | c | c | c | c | c | c | c |}
+    \hline
+    \textbf{X} & \textbf{Y} & \textbf{Z} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{E} & \textbf{F} & \textbf{G} & \textbf{H} \\
+    \hline
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1  \\
+    \hline
+    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0  \\
+    \hline
+    0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0  \\
+    \hline
+    0 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0  \\
+    \hline
+    1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0  \\
+    \hline
+    1 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0  \\
+    \hline
+    1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\
+    \hline
+    1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0  \\
+    \hline
+    \end{tabular}
+    \caption{Truth Table}
+    \label{tab:my_label}
+ \end{table}
+ 
+\textbf{Solution :}  In the Truth table (Table3) X,Y,Z are inputs and A,B,C,D,E,F,G,H are outputs. This table represents the system that behaves as a 3 to 8 decoder. Using Boolean logic, \\
+ \begin{center}
+     H= X' Y' Z'\\
+ \end{center}
+  \begin{center}
+      G= X' Y' Z\\
+ \end{center}
+  \begin{center}
+      F= X' Y Z'\\
+ \end{center}
+  \begin{center}
+      E= X' Y Z\\
+ \end{center}
+  \begin{center}
+     D= X Y' Z'\\
+ \end{center}
+  \begin{center}
+     C= X Y' Z\\
+ \end{center}
+  \begin{center}
+     B= X Y Z'\\
+ \end{center}
+  \begin{center}
+     A= X Y Z\\
+ \end{center} 
+
+Here we can use same commands like DDR, PORT and many more which were used in Assembly and Ide.
+ \section{Conclusion}
+ A 3 to 8 decoder has 3 inputs and 8 outputs are generated using these 3 inputs.\\
+ \\
+  Here 3 to 8 decoder has been successfully verified.\\
+\end{document}
+
