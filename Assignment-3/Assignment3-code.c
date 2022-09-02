@@ -13,9 +13,9 @@
 int main (void)
 
 {
-DDRB = 0b00000000;
+DDRB = 0b00000000;  //inputs d10-12
 PORTB = 0b00011100;
-DDRD = 0b11111100;
+DDRD = 0b11111100;  //outputs d2-9
 DDRB = 0b00000011;
 while (1){
  int A,B,C,D,E,F,G,H;
