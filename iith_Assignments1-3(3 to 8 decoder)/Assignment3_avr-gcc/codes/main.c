@@ -1,4 +1,4 @@
-//Takes a number as input and prints the next number as output
+
 
 #include <avr/io.h>
 
