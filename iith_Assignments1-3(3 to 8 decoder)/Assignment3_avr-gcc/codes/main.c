@@ -25,21 +25,21 @@ while (1){
  Z = (PINB & (1<<PINB4)) == (1<<PINB4);
 
 H = ~X&~Y&~Z;
-PORTD = ((A <<  PD2));
+PORTD = ((H <<  PD2));
 G = ~X&~Y&Z;
-PORTD = ((B <<  PD3));  
+PORTD = ((G <<  PD3));  
 F = ~X&Y&~Z;
-PORTD = ((C <<  PD4));  
+PORTD = ((F <<  PD4));  
 E = ~X&Y&Z;
-PORTD = ((D <<  PD5));  
+PORTD = ((E <<  PD5));  
 D = X&~Y&~Z;
-PORTD = ((E <<  PD6));  
+PORTD = ((D <<  PD6));  
 C = X&~Y&Z;
-PORTD = ((F <<  PD7));  
+PORTD = ((C <<  PD7));  
 B = X&Y&~Z;
-PORTB = ((G <<  PB0));  
+PORTB = ((B <<  PB0));  
 A = X&Y&Z;
-PORTB = ((H <<  PB1));  
+PORTB = ((A <<  PB1));  
 
  }
 
