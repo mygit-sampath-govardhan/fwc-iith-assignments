@@ -116,7 +116,6 @@ static void nvic_init(void)
 void decoder(int A, int B, int C, int D, int E, int F, int G, int H)
 
 {
-    //Seven Segment GPIO
     PyHal_GPIO_Set(4,A);//a
     PyHal_GPIO_Set(5,B);//b
     PyHal_GPIO_Set(6,C);//c
