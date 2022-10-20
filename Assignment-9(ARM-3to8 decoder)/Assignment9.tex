@@ -1,0 +1,151 @@
+
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\title{
+3 to 8 Decoder through VAMAN ARM-GCC
+}
+\author{Kukunuri Sampath Govardhan}
+\begin{document}
+\maketitle
+\tableofcontents
+\begin{abstract}
+This document shows how to use VAMAN Board as a 3 to 8 Decoder
+\end{abstract}
+\section{Components}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{| c | c | c |}
+       \hline
+       \textbf{Component}  &  \textbf{Value}  &  \textbf{Qunatity}\\
+       \hline
+         Resistor  &  220Ohm  &  8  \\
+         \hline
+         LED  &  Red  &  8  \\
+         \hline
+         VAMAN Board  &  & 1  \\
+         \hline
+         Jumper Wires  &  M-F  &  20  \\
+         \hline
+         BreadBoard  &    &  1\\
+         \hline
+         
+    \end{tabular}
+    \caption{}
+    \label{tab:my_label}
+\end{table}
+\section{Hardware}
+\textbf{Problem 2.1} Make connections between the Vaman Board(PYGMY) and LED's as shown in Table 2 \\
+
+\textbf{Problem 2.2} Connect anodes of LED's to the pins using resistors and cathodes to ground(gnd).\\
+\begin{table}[h]
+    \centering
+    \begin{tabular}{| c | c | c | c | c | c | c | c |}
+        \hline
+         IO\_4 & IO\_5 & IO\_6 & IO\_7 & IO\_8 & IO\_10 & IO\_11 & IO\_12  \\
+       \hline
+       led1 & led2 & led3 & led4 & led5 & led6 & led7 & led8  \\
+         \hline
+    \end{tabular}
+    \caption{}
+    \label{tab:my_label}
+\end{table}
+\\
+\textbf{Problem 2.3} Connect the input pins X, Y, Z to Vaman as shown in Table 3.\\
+
+    \begin{table}[h]
+    \centering
+    \begin{tabular}{| c | c | c |}
+    \hline
+    \textbf{X} & \textbf{Y} & \textbf{Z} \\
+    \hline
+    IO\_28 & IO\_29 & IO\_31  \\
+    \hline
+    \end{tabular}
+    \caption{}
+    \label{tab:my_label}
+ \end{table}
+
+
+\section{Software}
+\textbf{Problem 3.1} Execute the following script in termux which compiles the code and sends it to pi. \\
+\vspace{1cm}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{| c |}
+    \hline
+    wget https://github.com/mygit-sampath-govardhan/fwc-iith-assignments\\/blob/14bf619b0f2efd421bb36bb4357cc751132bf78b/Assignment-9\\(ARM-3to8\%20decoder)/script.sh\\
+    \hline
+    \end{tabular}
+\end{table}
+\textbf{Note:} Change the ipaddress accordingly.\\
+\\
+\textbf{Problem 3.2} Now execute the following script in pi which flashes .bin file to Vaman board, and verify all the outputs as mentioned in Truth table (Table 4) by modifying the inputs X, Y, Z to 0's and 1's respectively. \\
+\begin{table}[h]
+    \centering
+    \begin{tabular}{| c |}
+    \hline
+    wget https://github.com/mygit-sampath-govardhan/fwc-iith-assignments\\/blob/14bf619b0f2efd421bb36bb4357cc751132bf78b/Assignment-9\\(ARM-3to8\%20decoder)/In\%20pi/arm.sh\\
+    \hline
+    \end{tabular}
+\end{table}
+
+\textbf{Note:} Output pins IO\_4-8,IO\_10-12 are referenced as A-H respectively and input pins IO\_28,29,31 are referred as X,Y,Z respectively.\\
+
+    \begin{table}[h]
+    \centering
+    \begin{tabular}{| c | c | c || c | c | c | c | c | c | c | c |}
+    \hline
+    \textbf{X} & \textbf{Y} & \textbf{Z} & \textbf{H} & \textbf{G} & \textbf{F} & \textbf{E} & \textbf{D} & \textbf{C} & \textbf{B} & \textbf{A} \\
+    \hline
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1  \\
+    \hline
+    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0  \\
+    \hline
+    0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0  \\
+    \hline
+    0 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0  \\
+    \hline
+    1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0  \\
+    \hline
+    1 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0  \\
+    \hline
+    1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\
+    \hline
+    1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0  \\
+    \hline
+    \end{tabular}
+    \caption{Truth Table}
+    \label{tab:my_label}
+ \end{table}
+\section{Solution}
+
+In the Truth table (Table3) X,Y,Z are inputs and A,B,C,D,E,F,G,H are outputs. This table represents the system that behaves as a 3 to 8 decoder. Using Boolean logic, \\
+ \begin{center}
+     A= X' Y' Z'\\
+ \end{center}
+  \begin{center}
+      B= X' Y' Z\\
+ \end{center}
+  \begin{center}
+      C= X' Y Z'\\
+ \end{center}
+  \begin{center}
+      D= X' Y Z\\
+ \end{center}
+  \begin{center}
+     E= X Y' Z'\\
+ \end{center}
+  \begin{center}
+     F= X Y' Z\\
+ \end{center}
+  \begin{center}
+     G= X Y Z'\\
+ \end{center}
+  \begin{center}
+     H= X Y Z\\
+ \end{center} 
+ \section{Conclusion}
+ A 3 to 8 decoder has 3 inputs and 8 outputs are generated using these 3 inputs.\\
+ \\
+  Here 3 to 8 decoder with Vaman Board has been successfully verified.\\
+\end{document}
+
