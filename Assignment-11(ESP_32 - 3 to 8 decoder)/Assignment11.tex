@@ -1,0 +1,140 @@
+
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\title{
+3 to 8 Decoder through VAMAN ESP-32
+}
+\author{Kukunuri Sampath Govardhan}
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Components}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{| c | c | c |}
+       \hline
+       \textbf{Component}  &  \textbf{Value}  &  \textbf{Qunatity}\\
+       \hline
+         Resistor  &  220Ohm  &  8  \\
+         \hline
+         LED  &  Red  &  8  \\
+         \hline
+         VAMAN Board  &  & 1  \\
+         \hline
+         Jumper Wires  &  M-F  &  20  \\
+         \hline
+         BreadBoard  &    &  1\\
+         \hline
+         
+    \end{tabular}
+    \caption{}
+    \label{tab:my_label}
+\end{table}
+\section{Setup}
+\textbf{Problem 2.1} Make connections between the Vaman Board(ESP-32) and LED's as shown in Table 2 \\
+
+\textbf{Problem 2.2} Connect anodes of LED's to the pins using resistors and cathodes to ground(gnd).\\
+\begin{table}[h]
+    \centering
+    \begin{tabular}{| c | c | c | c | c | c | c | c |}
+        \hline
+         IO\_11 & IO\_12 & IO\_13 & IO\_14 & IO\_15 & IO\_16 & IO\_17 & IO\_18    \\
+       \hline
+       led1 & led2 & led3 & led4 & led5 & led6 & led7 & led8  \\
+         \hline
+    \end{tabular}
+    \caption{}
+    \label{tab:my_label}
+\end{table}
+\\
+\textbf{Problem 2.3} Connect the input pins X, Y, Z to Vaman as shown in Table 3.\\
+
+    \begin{table}[h]
+    \centering
+    \begin{tabular}{| c | c | c |}
+    \hline
+    \textbf{X} & \textbf{Y} & \textbf{Z} \\
+    \hline
+    IO\_8 & IO\_9 & IO\_10  \\
+    \hline
+    \end{tabular}
+    \caption{}
+    \label{tab:my_label}
+ \end{table}
+
+
+\section{Software}
+\textbf{Problem 3.1} Execute the following script in termux which compiles the code and generates a .bin file and sends it to Vaman board. \\
+\vspace{1cm}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{| c |}
+    \hline
+wget https://github.com/mygit-sampath-govardhan\\/fwc-iith-assignments/blob/98ed8708b8864dc568f557e7fcead70f441b7449\\/Assignment-11(ESP\_32\%20-\%203\%20to\%208\%20decoder)/script.sh\\
+    \hline
+    \end{tabular}
+\end{table}
+\textbf{Note:} Change the ipaddress accordingly.\\
+\\
+\textbf{Problem 3.2} Verify all the outputs as mentioned in Truth table (Table 4) by modifying the inputs X, Y, Z to 0's and 1's respectively. \\
+
+\textbf{Note:} Output pins IO\_11-18 are referenced as A-H respectively and input pins IO\_8,9,10 are referred as X,Y,Z respectively.\\
+
+    \begin{table}[h]
+    \centering
+    \begin{tabular}{| c | c | c || c | c | c | c | c | c | c | c |}
+    \hline
+    \textbf{X} & \textbf{Y} & \textbf{Z} & \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{E} & \textbf{F} & \textbf{G} & \textbf{H} \\
+    \hline
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1  \\
+    \hline
+    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0  \\
+    \hline
+    0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0  \\
+    \hline
+    0 & 1 & 1 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0  \\
+    \hline
+    1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0  \\
+    \hline
+    1 & 0 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0  \\
+    \hline
+    1 & 1 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0  \\
+    \hline
+    1 & 1 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0  \\
+    \hline
+    \end{tabular}
+    \caption{Truth Table}
+    \label{tab:my_label}
+ \end{table}
+\section{Solution}
+
+In the Truth table (Table3) X,Y,Z are inputs and A,B,C,D,E,F,G,H are outputs. This table represents the system that behaves as a 3 to 8 decoder. Using Boolean logic, \\
+ \begin{center}
+     A= X' Y' Z'\\
+ \end{center}
+  \begin{center}
+      B= X' Y' Z\\
+ \end{center}
+  \begin{center}
+      C= X' Y Z'\\
+ \end{center}
+  \begin{center}
+      D= X' Y Z\\
+ \end{center}
+  \begin{center}
+     E= X Y' Z'\\
+ \end{center}
+  \begin{center}
+     F= X Y' Z\\
+ \end{center}
+  \begin{center}
+     G= X Y Z'\\
+ \end{center}
+  \begin{center}
+     H= X Y Z\\
+ \end{center} 
+ \section{Conclusion}
+ A 3 to 8 decoder has 3 inputs and 8 outputs are generated using these 3 inputs.\\
+ \\
+  Here 3 to 8 decoder with Vaman Board has been successfully verified.\\
+\end{document}
+
