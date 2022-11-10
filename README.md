@@ -1,2 +1,2 @@
 # fwc-iith-assignments
-fwc-assignments
+MODULE-1
